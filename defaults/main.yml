@@ -1,0 +1,14 @@
+---
+filebeat_inputs:
+ - type: "docker"
+   combine_partial: "false"
+   containers.ids:
+   - "*"
+
+### beats
+filebeat_output:
+ type: "logstash"
+ hosts: "0.0.0.0:5044"
+
+processors:
+  - "add_docker_metadata: ~"

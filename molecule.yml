@@ -1,0 +1,18 @@
+---
+ansible:
+  playbook: tests/playbook.yml
+  verbose: vv
+driver:
+  name: docker
+verifier:
+  name: testinfra
+docker:
+  containers:
+    - name: xenial
+      image: solita/ubuntu-systemd
+      image_version: 16.04
+      privileged: true
+    - name: centos
+      image: solita/centos-systemd
+      image_version: latest
+      privileged: true

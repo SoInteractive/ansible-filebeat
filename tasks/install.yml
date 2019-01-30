@@ -1,0 +1,43 @@
+---
+- name: install apt-transport-https
+  apt:
+    name: apt-transport-https
+    state: present
+  when: ansible_pkg_mgr == "apt"
+
+- name: add GPG key
+  apt_key:
+    url: https://artifacts.elastic.co/GPG-KEY-elasticsearch
+    state: present
+  when: ansible_pkg_mgr == "apt"
+
+- name: add elatic repository
+  apt_repository:
+    repo: deb https://artifacts.elastic.co/packages/6.x/apt stable main
+    state: present
+    update_cache: yes
+  when: ansible_pkg_mgr == "apt"
+
+- name: install filebeat
+  apt:
+    name: filebeat
+    state: present
+  when: ansible_pkg_mgr == "apt"
+
+- name: add GPG key
+  rpm_key:
+    key: https://artifacts.elastic.co/GPG-KEY-elasticsearch
+    state: present
+  when: ansible_pkg_mgr == "yum"
+
+- name: add elastic repository
+  template:
+    src: elastic.repo
+    dest: /etc/yum.repos.d/elastic.repo
+  when: ansible_pkg_mgr == "yum"
+
+- name: install filebeat
+  yum:
+    name: filebeat
+    state: present
+  when: ansible_pkg_mgr == "yum"
