@@ -5,7 +5,7 @@ filebeat_inputs:
    containers.ids:
    - "*"
 
-### beats
+### beats ###
 filebeat_output:
  type: "logstash"
  hosts: "0.0.0.0:5044"
