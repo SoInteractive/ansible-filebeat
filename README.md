@@ -1,0 +1,3 @@
+# ansible-filebeat
+
+[![Build Status](https://travis-ci.org/SoInteractive/ansible-filebeat.svg?branch=master)](https://travis-ci.org/SoInteractive/ansible-filebeat) [![License](https://img.shields.io/badge/license-MIT%20License-brightgreen.svg)](https://opensource.org/licenses/MIT) [![Ansible Role](https://img.shields.io/badge/ansible%20role-SoInteractive.filebeat-blue.svg)](https://galaxy.ansible.com/SoInteractive/filebeat/) [![GitHub tag](https://img.shields.io/github/tag/sointeractive/ansible-filebeat.svg)](https://github.com/SoInteractive/ansible-filebeat/tags) [![Twitter URL](https://img.shields.io/twitter/follow/sointeractive.svg?style=social&label=Follow%20%40SoInteractive)](https://twitter.com/sointeractive)
