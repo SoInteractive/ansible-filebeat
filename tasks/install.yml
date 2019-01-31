@@ -4,7 +4,10 @@
     name: apt-transport-https
     state: present
   when: ansible_pkg_mgr == "apt"
-  retries: 3
+  register: task_result
+  until: task_result is success
+  retries: 10
+  delay: 2
 
 - name: add GPG key
   apt_key:
