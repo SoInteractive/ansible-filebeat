@@ -6,7 +6,7 @@
   when: ansible_pkg_mgr == "apt"
   register: task_result
   until: task_result is success
-  retries: 10
+  retries: 4
   delay: 2
 
 - name: add GPG key
@@ -14,7 +14,10 @@
     url: https://artifacts.elastic.co/GPG-KEY-elasticsearch
     state: present
   when: ansible_pkg_mgr == "apt"
-  retries: 3
+  register: task_result
+  until: task_result is success
+  retries: 4
+  delay: 2
 
 - name: add elatic repository
   apt_repository:
@@ -22,21 +25,26 @@
     state: present
     update_cache: yes
   when: ansible_pkg_mgr == "apt"
-  retries: 3
 
 - name: install filebeat
   apt:
     name: filebeat
     state: present
   when: ansible_pkg_mgr == "apt"
-  retries: 3
+  register: task_result
+  until: task_result is success
+  retries: 4
+  delay: 2
 
 - name: add GPG key
   rpm_key:
     key: https://artifacts.elastic.co/GPG-KEY-elasticsearch
     state: present
   when: ansible_pkg_mgr == "yum"
-  retries: 3
+  register: task_result
+  until: task_result is success
+  retries: 4
+  delay: 2
 
 - name: add elastic repository
   template:
@@ -49,3 +57,7 @@
     name: filebeat
     state: present
   when: ansible_pkg_mgr == "yum"
+  register: task_result
+  until: task_result is success
+  retries: 4
+  delay: 2
