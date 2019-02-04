@@ -1,0 +1,16 @@
+---
+galaxy_info:
+  author: Agata Hochór
+  description: filebeat installation
+  company: Sointeractive
+  license: MIT
+  min_ansible_version: 2.4
+  platforms:
+   - name: EL
+     versions:
+       - 7
+   - name: Ubuntu
+     versions:
+       - xenial
+  galaxy_tags:
+   - filebeat
